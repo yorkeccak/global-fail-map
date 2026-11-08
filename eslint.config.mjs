@@ -1,17 +1,16 @@
-import { dirname } from 'path';
-import { fileURLToPath } from 'url';
-import { FlatCompat } from '@eslint/eslintrc';
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
-
-const compat = new FlatCompat({
-  baseDirectory: __dirname,
-});
+import nextVitals from 'eslint-config-next/core-web-vitals';
 
 const eslintConfig = [
   { ignores: ['.next*/**', 'node_modules/**', 'public/reports/**'] },
-  ...compat.extends('next/core-web-vitals'),
+  ...nextVitals,
+  {
+    // React Compiler rules introduced with eslint-config-next 16; existing
+    // effects predate them, so surface them as warnings for now.
+    rules: {
+      'react-hooks/refs': 'warn',
+      'react-hooks/set-state-in-effect': 'warn',
+    },
+  },
 ];
 
 export default eslintConfig;
