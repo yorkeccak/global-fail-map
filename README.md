@@ -70,7 +70,7 @@ Global Fail Map treats failure as evidence, not trivia. Each story asks:
 
 ## Tech Stack
 
-- **Framework**: Next.js 15 with App Router
+- **Framework**: Next.js 16 with App Router
 - **UI**: React 19, Tailwind CSS, custom components
 - **Map**: Mapbox GL JS with globe projection
 - **Research**: Valyu DeepResearch API
